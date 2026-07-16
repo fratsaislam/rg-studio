@@ -1,0 +1,61 @@
+name: rg_studio_mobile
+description: RG Studio Management Platform - Mobile App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Navigation
+  go_router: ^14.2.7
+
+  # HTTP Client
+  dio: ^5.4.3
+
+  # Secure Storage
+  flutter_secure_storage: ^9.2.2
+
+  # Local Storage
+  shared_preferences: ^2.2.3
+
+  # UI
+  google_fonts: ^6.2.1
+  cached_network_image: ^3.3.1
+  flutter_svg: ^2.0.10+1
+  shimmer: ^3.0.0
+  intl: ^0.20.0
+
+  # Icons
+  material_symbols_icons: ^4.2796.0
+
+  # Form validation
+  form_builder_validators: ^11.1.2
+
+  # Date picker
+  table_calendar: ^3.1.2
+
+  # File handling
+  image_picker: ^1.1.2
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  riverpod_generator: ^2.4.0
+  build_runner: ^2.4.9
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
