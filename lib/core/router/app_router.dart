@@ -14,6 +14,9 @@ import '../../features/production/presentation/production_screen.dart';
 import '../../features/absences/presentation/absences_screen.dart';
 import '../../features/notifications/presentation/notifications_screen.dart';
 import '../../features/messaging/presentation/messaging_screen.dart';
+import '../../features/suppliers/presentation/suppliers_screen.dart';
+import '../../features/operations/presentation/operations_screen.dart';
+import '../../features/admin/presentation/admin_screen.dart';
 import '../../shared/widgets/main_scaffold.dart';
 import '../../features/auth/data/auth_provider.dart';
 
@@ -32,39 +35,65 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     },
     routes: [
       GoRoute(path: '/login', builder: (ctx, _) => const LoginScreen()),
-      GoRoute(path: '/change-password', builder: (ctx, _) => const ChangePasswordScreen()),
+      GoRoute(
+          path: '/change-password',
+          builder: (ctx, _) => const ChangePasswordScreen()),
       ShellRoute(
         builder: (context, state, child) => MainScaffold(child: child),
         routes: [
-          GoRoute(path: '/dashboard', builder: (ctx, _) => const DashboardScreen()),
+          GoRoute(
+              path: '/dashboard', builder: (ctx, _) => const DashboardScreen()),
           GoRoute(
             path: '/clients',
             builder: (ctx, _) => const ClientsScreen(),
             routes: [
-              GoRoute(path: 'new', builder: (ctx, _) => const ClientFormScreen()),
-              GoRoute(path: 'edit/:id', builder: (ctx, state) => ClientFormScreen(clientId: int.parse(state.pathParameters['id']!))),
+              GoRoute(
+                  path: 'new', builder: (ctx, _) => const ClientFormScreen()),
+              GoRoute(
+                  path: 'edit/:id',
+                  builder: (ctx, state) => ClientFormScreen(
+                      clientId: int.parse(state.pathParameters['id']!))),
             ],
           ),
           GoRoute(
             path: '/orders',
             builder: (ctx, _) => const OrdersScreen(),
             routes: [
-              GoRoute(path: 'new', builder: (ctx, _) => const OrderFormScreen()),
-              GoRoute(path: 'edit/:id', builder: (ctx, state) => OrderFormScreen(orderId: int.parse(state.pathParameters['id']!))),
+              GoRoute(
+                  path: 'new', builder: (ctx, _) => const OrderFormScreen()),
+              GoRoute(
+                  path: 'edit/:id',
+                  builder: (ctx, state) => OrderFormScreen(
+                      orderId: int.parse(state.pathParameters['id']!))),
             ],
           ),
-          GoRoute(path: '/equipment', builder: (ctx, _) => const EquipmentScreen()),
-          GoRoute(path: '/planning', builder: (ctx, _) => const PlanningScreen()),
-          GoRoute(path: '/production', builder: (ctx, _) => const ProductionScreen()),
-          GoRoute(path: '/absences', builder: (ctx, _) => const AbsencesScreen()),
-          GoRoute(path: '/notifications', builder: (ctx, _) => const NotificationsScreen()),
-          GoRoute(path: '/messaging', builder: (ctx, _) => const MessagingScreen()),
+          GoRoute(
+              path: '/equipment', builder: (ctx, _) => const EquipmentScreen()),
+          GoRoute(
+              path: '/planning', builder: (ctx, _) => const PlanningScreen()),
+          GoRoute(
+              path: '/production',
+              builder: (ctx, _) => const ProductionScreen()),
+          GoRoute(
+              path: '/suppliers', builder: (ctx, _) => const SuppliersScreen()),
+          GoRoute(
+              path: '/operations',
+              builder: (ctx, _) => const OperationsScreen()),
+          GoRoute(path: '/admin', builder: (ctx, _) => const AdminScreen()),
+          GoRoute(
+              path: '/absences', builder: (ctx, _) => const AbsencesScreen()),
+          GoRoute(
+              path: '/notifications',
+              builder: (ctx, _) => const NotificationsScreen()),
+          GoRoute(
+              path: '/messaging', builder: (ctx, _) => const MessagingScreen()),
         ],
       ),
     ],
     errorBuilder: (context, state) => Scaffold(
       body: Center(
-        child: Text('Page not found: ${state.uri}', style: const TextStyle(color: Colors.white)),
+        child: Text('Page not found: ${state.uri}',
+            style: const TextStyle(color: Colors.white)),
       ),
     ),
   );

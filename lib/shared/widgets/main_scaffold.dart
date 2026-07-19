@@ -15,9 +15,14 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
   final List<_NavItem> _items = const [
     _NavItem(icon: Icons.dashboard_rounded, label: 'Home', path: '/dashboard'),
     _NavItem(icon: Icons.people_rounded, label: 'Clients', path: '/clients'),
-    _NavItem(icon: Icons.shopping_bag_rounded, label: 'Orders', path: '/orders'),
-    _NavItem(icon: Icons.construction_rounded, label: 'Equipment', path: '/equipment'),
-    _NavItem(icon: Icons.chat_rounded, label: 'Messages', path: '/messaging'),
+    _NavItem(
+        icon: Icons.shopping_bag_rounded, label: 'Orders', path: '/orders'),
+    _NavItem(
+        icon: Icons.construction_rounded,
+        label: 'Equipment',
+        path: '/equipment'),
+    _NavItem(icon: Icons.event_note_rounded, label: 'Ops', path: '/operations'),
+    _NavItem(icon: Icons.more_horiz_rounded, label: 'More', path: '/dashboard'),
   ];
 
   int _currentIndex(BuildContext context) {
@@ -49,22 +54,32 @@ class _MainScaffoldState extends ConsumerState<MainScaffold> {
                   onTap: () => context.go(_items[i].path),
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 200),
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
-                      color: selected ? AppTheme.primary.withValues(alpha: 0.15) : Colors.transparent,
+                      color: selected
+                          ? AppTheme.primary.withValues(alpha: 0.15)
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(_items[i].icon, color: selected ? AppTheme.primary : AppTheme.textMuted, size: 22),
+                        Icon(_items[i].icon,
+                            color: selected
+                                ? AppTheme.primary
+                                : AppTheme.textMuted,
+                            size: 22),
                         const SizedBox(height: 4),
                         Text(
                           _items[i].label,
                           style: TextStyle(
-                            color: selected ? AppTheme.primary : AppTheme.textMuted,
+                            color: selected
+                                ? AppTheme.primary
+                                : AppTheme.textMuted,
                             fontSize: 11,
-                            fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+                            fontWeight:
+                                selected ? FontWeight.w600 : FontWeight.w400,
                           ),
                         ),
                       ],
